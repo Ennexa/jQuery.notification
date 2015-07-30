@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Notification Demo</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style type="text/css">
+#notification{width:300px;position:fixed;top:45px;right:5px;list-style-type:none;z-index:10000;}
+#notification li{margin-bottom:5px;border:2px #333 solid;box-shadow:1px 1px 3px #333;}
+#notification li.in{opacity:0.8;}
+#notification li.in:hover{opacity:1;}
+#notification .close{outline:none;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="dist/notification.min.js"></script>
+<script>
+$(function(){
+
+	setTimeout(function(){
+		new $.notification('Hello! How are you? I will auto disappear after 5 seconds.');
+		new $.notification('I will not disappear unless you click on me.', {"class" : 'alert-danger', timeout : null});
+		new $.notification('I will not disappear unless my creator decides so.', {"class" : 'alert-warning', timeout : null, click : null, close : false});
+		
+		$(document).click(function(){
+			$('<strong>Hover to close</strong>').notification({"class" : 'alert-info block-message', timeout : 0}).mouseenter(function(){
+				$(this).notification('close');
+			});
+		});
+	}, 1000);
+});
+</script>
+
+</head>
+<body>
+</body>
+</html>
