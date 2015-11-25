@@ -7,7 +7,7 @@
  * @version 1.0.0
  *
  */
-
+/*! http://git.io/notification | © Ennexa Technologies | http://www.ennexa.com/ */
 (function($){
 	var $wrapper;
 	$.notification = function (msg, opt) {
